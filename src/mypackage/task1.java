@@ -5,3 +5,4 @@ public class task1 {
         System.out.println("Hallo world");
     }
 }
+
