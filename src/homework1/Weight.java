@@ -1,18 +1,25 @@
 package homework1;
 
-public class Weight {
-    public static double weightOnMoon;
-    public static int myWeight;
+class Weight {
+    private static final int DEFAULT_GRAVITY_ON_MOON_VALUE = 16;
+    private double weightOnMoon;
+    private int myWeight;
 
-    public Weight(int weight) {
-        myWeight = weight;
-        weightOnMoon = getWeightOnMoon();
+
+    int getMyWeight() {
+        return myWeight;
     }
 
-    private static double getWeightOnMoon() {
-        int gravityOnTheMoon = 16;
-        double weightOnMoon;
-        weightOnMoon = myWeight * (1 - (double) gravityOnTheMoon / 100);
+    double getWeightOnMoon() {
         return weightOnMoon;
+    }
+
+    Weight(int weight) {
+        this.myWeight = weight;
+        weightOnMoon();
+    }
+
+    private void weightOnMoon() {
+        this.weightOnMoon = myWeight * (1 - (double) DEFAULT_GRAVITY_ON_MOON_VALUE / 100);
     }
 }

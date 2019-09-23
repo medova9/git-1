@@ -1,6 +1,6 @@
 package homework1;
 
-public class DaysCounter {
+class DaysCounter {
     private static final int DEFAULT_HOURS_VALUE = 24;
     private static final int DEFAULT_MINUTES_VALUE = 60;
     private static final int DEFAULT_SECONDS_VALUE = 60;
@@ -14,12 +14,8 @@ public class DaysCounter {
         count();
     }
 
-    public int getDays() {
+    int getDays() {
         return days;
-    }
-
-    public void setDays(int days) {
-        this.days = days;
     }
 
     int getHours() {
