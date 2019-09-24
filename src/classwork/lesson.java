@@ -105,16 +105,33 @@ public class lesson {
 
     private static void runtask5() {
         //Task 5.  Write a Java program to test if an array contains a specific value.
+        int[] array1 = {12, 22, -5, 32, 8, 0};
+        int check = 8;
+        int tmp = 0;
+        for (int i = 0; i < array1.length; i++) {
+            if(array1[i]==check){
+                tmp = 1;
+                break;
+            }
+        }
+        System.out.println("Среднее значение элементов массива "+Homework.arrayToString(array1)+" = "+tmp/array1.length);
 
     }
 
     private static void runtask4() {
         //Task 4.  Write a Java program to calculate the average value of array elements.
+        int[] array1 = {12, 22, -5, 32, 8, 0};
+        int tmp = 0;
+        for (int i = 0; i < array1.length; i++) {
+            tmp += array1[i];
+        }
+        System.out.println("Среднее значение элементов массива "+Homework.arrayToString(array1)+" = "+tmp/array1.length);
 
     }
 
     private static void runtask3() {
         //Task 3. Write a Java program to print the following grid
+
 
     }
 
@@ -125,7 +142,7 @@ public class lesson {
         for (int i = 0; i < array1.length; i++) {
             tmp += array1[i];
         }
-        System.out.println("Сумма элементов массива "+Homework.printArrayString(array1)+" = "+tmp);
+        System.out.println("Сумма элементов массива "+Homework.arrayToString(array1)+" = "+tmp);
 
 
     }
@@ -145,7 +162,7 @@ public class lesson {
                 }
             }
         }
-        System.out.println(Homework.printArrayString(array1));
+        System.out.println(Homework.arrayToString(array1));
 
         String[] arrayString = {"Аня", "Таня", "Паша", "Оля","Влад"};
         String tmpString = "";
@@ -158,7 +175,7 @@ public class lesson {
                 }
             }
         }
-        System.out.println(Homework.printArrayString(arrayString));
+        System.out.println(Homework.arrayToString(arrayString));
 
 
     }

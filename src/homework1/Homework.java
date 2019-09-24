@@ -40,9 +40,9 @@ public class Homework {
         double[] myArray = {3, 14, 22.3, -67};
         int myPercent = 10;
         System.out.println(RESULT_WORD);
-        System.out.println("При увеличении каждого элемента массива " + printArrayString(myArray) + " на " + myPercent + "%");
+        System.out.println("При увеличении каждого элемента массива " + arrayToString(myArray) + " на " + myPercent + "%");
         increaseEachArrayEl(myArray, myPercent);
-        System.out.println("получается массив " + printArrayString(myArray));
+        System.out.println("получается массив " + arrayToString(myArray));
     }
 
     private static void runTask3() {
@@ -157,18 +157,18 @@ public class Homework {
         System.out.println("\n11. Напишите программу с тремя переменными целого типа. Определить какое из них наибольшее.");
         int num1 = 13;
         int num2 = -3;
-        int num3 = 5;        
-        
+        int num3 = 5;
+
         System.out.println(RESULT_WORD);
         System.out.println("Наибольшая переменная из num1 = " + num1 + ", num2 = " + num2 + " и num3 = " + num3 + " это ");
-        if (num1 == maxNum(num1, num2, num3)){
-            System.out.println("num1 = "+num1);
+        if (num1 == maxNum(num1, num2, num3)) {
+            System.out.println("num1 = " + num1);
         }
-        if (num2 == maxNum(num1, num2, num3)){
-            System.out.println("num2 = "+num2);
+        if (num2 == maxNum(num1, num2, num3)) {
+            System.out.println("num2 = " + num2);
         }
-        if (num3 == maxNum(num1, num2, num3)){
-            System.out.println("num3 = "+num3);
+        if (num3 == maxNum(num1, num2, num3)) {
+            System.out.println("num3 = " + num3);
         }
     }
 
@@ -234,9 +234,9 @@ public class Homework {
         System.out.println("\n17. Все элементы массива поделить на значение наибольшего элемента этого массива.");
         double[] myArray1 = {3, 14, 22.3, -67};
         System.out.println(RESULT_WORD);
-        System.out.println("При делении каждого элемента массива " + printArrayString(myArray1) + " на максимальный элемент ");
+        System.out.println("При делении каждого элемента массива " + arrayToString(myArray1) + " на максимальный элемент ");
         decreaseEachArrayEl(myArray1);
-        System.out.println("получается массив " + printArrayString(myArray1));
+        System.out.println("получается массив " + arrayToString(myArray1));
     }
 
     private static void runTask18() {
@@ -335,7 +335,7 @@ public class Homework {
         }
     }
 
-    public static String printArrayString(double[] array) {
+    public static String arrayToString(double[] array) {
         String str = "{ ";
         for (int i = 0; i < array.length; i++) {
             str = str + round(array[i], 2) + (i + 1 < array.length ? ", " : " }");
@@ -343,14 +343,15 @@ public class Homework {
         return str;
     }
 
-    public static String printArrayString(int[] array) {
+    public static String arrayToString(int[] array) {
         String str = "{ ";
         for (int i = 0; i < array.length; i++) {
             str = str + array[i] + (i + 1 < array.length ? ", " : " }");
         }
         return str;
     }
-    public static String printArrayString(String[] array) {
+
+    public static String arrayToString(String[] array) {
         String str = "{ ";
         for (int i = 0; i < array.length; i++) {
             str = str + array[i] + (i + 1 < array.length ? ", " : " }");
