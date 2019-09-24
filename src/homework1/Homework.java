@@ -335,10 +335,25 @@ public class Homework {
         }
     }
 
-    private static String printArrayString(double[] array) {
+    public static String printArrayString(double[] array) {
         String str = "{ ";
         for (int i = 0; i < array.length; i++) {
             str = str + round(array[i], 2) + (i + 1 < array.length ? ", " : " }");
+        }
+        return str;
+    }
+
+    public static String printArrayString(int[] array) {
+        String str = "{ ";
+        for (int i = 0; i < array.length; i++) {
+            str = str + array[i] + (i + 1 < array.length ? ", " : " }");
+        }
+        return str;
+    }
+    public static String printArrayString(String[] array) {
+        String str = "{ ";
+        for (int i = 0; i < array.length; i++) {
+            str = str + array[i] + (i + 1 < array.length ? ", " : " }");
         }
         return str;
     }
