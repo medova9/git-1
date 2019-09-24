@@ -3,6 +3,7 @@ package homework1;
 
 public class Homework {
     private static final String RESULT_WORD = "--РЕЗУЛЬТАТ--";
+
     public static void main(String[] args) {
         System.out.println("Домашняя работа №1");
         runTask1();
@@ -39,9 +40,9 @@ public class Homework {
         double[] myArray = {3, 14, 22.3, -67};
         int myPercent = 10;
         System.out.println(RESULT_WORD);
-        System.out.println("При увеличении каждого элемента массива " + arrayStr(myArray) + " на " + myPercent + "%");
+        System.out.println("При увеличении каждого элемента массива " + printArrayString(myArray) + " на " + myPercent + "%");
         increaseEachArrayEl(myArray, myPercent);
-        System.out.println("получается массив " + arrayStr(myArray));
+        System.out.println("получается массив " + printArrayString(myArray));
     }
 
     private static void runTask3() {
@@ -97,7 +98,7 @@ public class Homework {
         System.out.println(RESULT_WORD);
         int startOfInterval = 1;
         int endOfInterval = 12;
-        String month = "";
+        String month;
         for (int i = startOfInterval; i <= endOfInterval; i++) {
             if (i == 1) {
                 month = "январь";
@@ -156,10 +157,19 @@ public class Homework {
         System.out.println("\n11. Напишите программу с тремя переменными целого типа. Определить какое из них наибольшее.");
         int num1 = 13;
         int num2 = -3;
-        int num3 = 5;
+        int num3 = 5;        
+        
         System.out.println(RESULT_WORD);
-        System.out.println("Наибольшее число из " + num1 + ", " + num2 + " и " + num3 + " это "
-                + maxNum(num1, num2, num3));
+        System.out.println("Наибольшая переменная из num1 = " + num1 + ", num2 = " + num2 + " и num3 = " + num3 + " это ");
+        if (num1 == maxNum(num1, num2, num3)){
+            System.out.println("num1 = "+num1);
+        }
+        if (num2 == maxNum(num1, num2, num3)){
+            System.out.println("num2 = "+num2);
+        }
+        if (num3 == maxNum(num1, num2, num3)){
+            System.out.println("num3 = "+num3);
+        }
     }
 
     private static void runTask12() {
@@ -206,11 +216,11 @@ public class Homework {
         System.out.println("\n15. Выведете на экран все числа от 1 до 100 с помощью цикла (можно все три варианта в одной ");
         System.out.println("программе): for while do while");
         System.out.println("for");
-        printHundred("for");
+        printHundredDo();
         System.out.println("while");
-        printHundred("while");
+        printHundredWhile();
         System.out.println("do while");
-        printHundred("do while");
+        printHundredDoWhile();
     }
 
     private static void runTask16() {
@@ -224,9 +234,9 @@ public class Homework {
         System.out.println("\n17. Все элементы массива поделить на значение наибольшего элемента этого массива.");
         double[] myArray1 = {3, 14, 22.3, -67};
         System.out.println(RESULT_WORD);
-        System.out.println("При делении каждого элемента массива " + arrayStr(myArray1) + " на максимальный элемент ");
+        System.out.println("При делении каждого элемента массива " + printArrayString(myArray1) + " на максимальный элемент ");
         decreaseEachArrayEl(myArray1);
-        System.out.println("получается массив " + arrayStr(myArray1));
+        System.out.println("получается массив " + printArrayString(myArray1));
     }
 
     private static void runTask18() {
@@ -236,7 +246,7 @@ public class Homework {
         double rateUSD = 2.0698;
         double sumBYN = 500;
         sumUSD = conversionToBYN(sumBYN, rateUSD);
-        System.out.println(round(sumBYN,2) + " белорусских рублей это " + round(sumUSD,2) + " $");
+        System.out.println(round(sumBYN, 2) + " белорусских рублей это " + round(sumUSD, 2) + " $");
     }
 
     private static void runTaskAdvancedLevel() {
@@ -274,47 +284,48 @@ public class Homework {
 
     }
 
-    private static void printHundred(String cycleType) {
+    private static void printHundredDo() {
         String outStr = "";
-        int i;
-        switch (cycleType) {
-            case "for":
-                for (i = 1; i <= 100; i++) {
-                    outStr = outStr + i + ", ";
-                    if (outStr.length() > 80) {
-                        System.out.println(outStr);
-                        outStr = "";
-                    }
-                }
+
+        for (int i = 1; i <= 100; i++) {
+            outStr = outStr + i + ", ";
+            if (outStr.length() > 80) {
                 System.out.println(outStr);
-                break;
-            case "while":
-                i = 1;
-                while (i <= 100) {
-                    outStr = outStr + i + ", ";
-                    if (outStr.length() > 80) {
-                        System.out.println(outStr);
-                        outStr = "";
-                    }
-                    i++;
-                }
-                System.out.println(outStr);
-                break;
-            case "do while":
-                i = 1;
-                do {
-                    outStr = outStr + i + ", ";
-                    if (outStr.length() > 80) {
-                        System.out.println(outStr);
-                        outStr = "";
-                    }
-                    i++;
-                } while (i <= 100);
-                System.out.println(outStr);
-                break;
-            default:
-                System.out.println("Неверный оператор " + cycleType);
+                outStr = "";
+            }
         }
+        System.out.println(outStr);
+
+    }
+
+    private static void printHundredWhile() {
+        String outStr = "";
+        int i = 1;
+        while (i <= 100) {
+            outStr = outStr + i + ", ";
+            if (outStr.length() > 80) {
+                System.out.println(outStr);
+                outStr = "";
+            }
+            i++;
+        }
+        System.out.println(outStr);
+
+    }
+
+    private static void printHundredDoWhile() {
+        String outStr = "";
+        int i = 1;
+        do {
+            outStr = outStr + i + ", ";
+            if (outStr.length() > 80) {
+                System.out.println(outStr);
+                outStr = "";
+            }
+            i++;
+        } while (i <= 100);
+        System.out.println(outStr);
+
     }
 
 
@@ -324,10 +335,10 @@ public class Homework {
         }
     }
 
-    private static String arrayStr(double[] array) {
+    private static String printArrayString(double[] array) {
         String str = "{ ";
         for (int i = 0; i < array.length; i++) {
-            str = str + round(array[i],2) + (i + 1 < array.length ? ", " : " }");
+            str = str + round(array[i], 2) + (i + 1 < array.length ? ", " : " }");
         }
         return str;
     }
@@ -417,7 +428,7 @@ public class Homework {
 
     }
 
-    public static double round(double value, int places) {
+    private static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
         long factor = (long) Math.pow(10, places);
