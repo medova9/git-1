@@ -49,7 +49,7 @@ public class Ship {
         this.boardHeight = boardHeight;
     }
 
-    public Ship(int decks, String name, int weight, String type, int boardHeight) {
+    Ship(int decks, String name, int weight, String type, int boardHeight) {
         this.decks = decks;
         this.name = name;
         this.weight = weight;

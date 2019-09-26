@@ -1,6 +1,5 @@
 package homework3;
 
-import java.beans.beancontext.BeanContextMembershipEvent;
 import java.util.Random;
 
 public class Demo {
@@ -12,7 +11,7 @@ public class Demo {
 
         Ship[] ships = new Ship[countOfShip];
         for (int i = 0; i < countOfShip; i++) {
-            ships[i] = new Ship(random.nextInt(10),namesList[i],random.nextInt(9000),getRandom(typeList),random.nextInt(100000));
+            ships[i] = new Ship(random.nextInt(5),namesList[i],random.nextInt(9000),getRandom(typeList),random.nextInt(100000));
         }
 
         for (Ship ship : ships) {
@@ -21,7 +20,7 @@ public class Demo {
 
     }
 
-    public static String  getRandom(String[] array) {
+    private static String  getRandom(String[] array) {
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }
