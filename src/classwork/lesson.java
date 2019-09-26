@@ -2,6 +2,8 @@ package classwork;
 
 import homework1.Homework;
 
+import java.util.ArrayList;
+
 public class lesson {
 
 
@@ -31,6 +33,12 @@ public class lesson {
     private static void runtask20() {
         //Task 20. Write a Java program to convert an array to ArrayList.
         System.out.println("\nTask 20. Write a Java program to convert an array to ArrayList.");
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
+        int[] array1 = {-10, -9, 22, -5, 32, 8, 0, 8};
+        for (int i : array1) {
+            integerArrayList.add(i);
+        }
+        System.out.println(integerArrayList);
     }
 
     private static void runtask19() {
@@ -59,35 +67,53 @@ public class lesson {
     private static void runtask18() {
         //Task 18. Write a Java program to find the second smallest element in an array.
         System.out.println("\nTask 18. Write a Java program to find the second smallest element in an array.");
-        int[] array1 = {1, 42, 22, -5, 32, 8, 0, 8};
-        int elMix1 = array1[0];
-        int elMix2 = 0;
+        //int[] array1 = {1, 42, 22, -5, 32, 8, 0, 8};
+        int[] array1 = {10, 9, 22, 5, 32, 8, 30, 8};
+        int elMin1 = array1[0];
+        int elMax1 = array1[0];
+        int elMin2 = 0;
         for (int val : array1) {
-            if (elMix1 > val) {
-                elMix1 = val;
+            if (elMin1 > val) {
+                elMin1 = val;
             }
         }
         for (int val : array1) {
-            if (elMix2 > val && val != elMix1) {
-                elMix2 = val;
+            if (elMax1 < val) {
+                elMax1 = val;
+            }
+        }
+        elMin2 = elMax1;
+        for (int val : array1) {
+            if (elMin2 > val && val != elMin1) {
+                elMin2 = val;
             }
         }
 
-        System.out.println(elMix1 + " - 1 наименьшее, " + elMix2 + " - 2 наименьшее значения массива " + Homework.arrayToString(array1));
+        System.out.println(elMin1 + " - 1 наименьшее, " + elMin2 + " - 2 наименьшее значения массива " + Homework.arrayToString(array1));
 
     }
 
     private static void runtask17() {
         //Task 17. Write a Java program to find the second largest element in an array.
         System.out.println("\nTask 17. Write a Java program to find the second largest element in an array.");
-        int[] array1 = {1, 42, 22, -5, 32, 8, 0, 8};
+        //int[] array1 = {1, 42, 22, -5, 32, 8, 0, 8};
+        int[] array1 = {-1, -42, -22, -5, -32, -8, -64, -64};
         int elMax1 = array1[0];
+        int elMin1 = array1[0];
         int elMax2 = 0;
+        // находим первый максимальный элемент
         for (int val : array1) {
             if (elMax1 < val) {
                 elMax1 = val;
             }
         }
+        // находим первый минимальный чтобы инициализировать им 2 максимальный
+        for (int val : array1) {
+            if (elMin1 > val) {
+                elMin1 = val;
+            }
+        }
+        elMax2 = elMin1;
         for (int val : array1) {
             if (elMax2 < val && val != elMax1) {
                 elMax2 = val;
@@ -181,7 +207,7 @@ public class lesson {
         System.out.println("Повторяющиеся элементы:\n" + result);
 
     }
-
+//2 раза вывелись
     private static void runtask12() {
         //Task 12. Write a Java program to find the duplicate values of an array of integer values.
         System.out.println("\nTask 12. Write a Java program to find the duplicate values of an array of integer values.");
@@ -234,7 +260,6 @@ public class lesson {
     private static void runtask9() {
         //Task 9.  Write a Java program to insert an element (specific position) into an array.
         System.out.println("\nTask 9.  Write a Java program to insert an element (specific position) into an array.");
-        System.out.println("\nTask 8.  Write a Java program to copy an array by iterating the array.");
         String[] arrayString = {"Аня", "Таня", "Слава", "Паша", "Оля", "Слава"};
         String check = "Коленька";
         int pos = 4;
