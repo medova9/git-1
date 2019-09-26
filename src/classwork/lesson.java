@@ -46,18 +46,20 @@ public class lesson {
         System.out.println("\nTask 19. Write a Java program to add two matrices of the same size.");
         int a = 3;
         int b = 2;
-        int c, d;
         int[][] matr1 = {{1,2},{4,5},{7,8}};
         int[][] matr2 = {{1,1},{1,1},{1,1}};
-        int matrSum[][] = new int[a][b];
+        int[][] matrSum = new int[a][b];
 
-        for (c = 0; c < a; c++)
-            for (d = 0; d < b; d++)
-                matrSum[c][d] = matr1[c][d] + matr2[c][d];
+        for (int i = 0; i < a; i++){
+            for (int j = 0; j < b; j++){
+                matrSum[i][j] = matr1[i][j] + matr2[i][j];
+            }
+        }
 
-        for (c = 0; c < a; c++) {
-            for (d = 0; d < b; d++) {
-                System.out.print(matrSum[c][d] + "\t");
+
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < b; j++) {
+                System.out.print(matrSum[i][j] + "\t");
             }
             System.out.println();
         }
