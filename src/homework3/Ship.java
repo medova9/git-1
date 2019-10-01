@@ -66,8 +66,8 @@ public class Ship {
         if (o == null || getClass() != o.getClass()) return false;
         Ship ship = (Ship) o;
         return decks == ship.decks &&
-                Double.compare(ship.weight, weight) == 0 &&
-                Double.compare(ship.boardHeight, boardHeight) == 0 &&
+                weight == ship.weight &&
+                boardHeight == ship.boardHeight &&
                 Objects.equals(name, ship.name) &&
                 Objects.equals(type, ship.type);
     }
@@ -87,4 +87,6 @@ public class Ship {
                 ", boardHeight=" + boardHeight +
                 '}';
     }
+
+
 }
