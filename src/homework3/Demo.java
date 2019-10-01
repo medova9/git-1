@@ -14,6 +14,7 @@ public class Demo {
             ships[i] = new Ship(random.nextInt(5),namesList[i],random.nextInt(9000),getRandom(typeList),random.nextInt(100000));
         }
 
+
         System.out.println("Массив кораблей");
         for (Ship ship : ships) {
             System.out.println(ship.toString());
@@ -26,6 +27,21 @@ public class Demo {
         for (Ship ship : getShipsByType(ships,"military")) {
             System.out.println(ship.toString());
         }
+
+        String[] typeDeckLevel = {"lower","average","upper"};
+
+        Deck[] decks = new Deck[5];
+        for (int i = 0; i < decks.length-2; i++) {
+            decks[i] = new Deck(random.nextInt(5),namesList[i],random.nextInt(9000),getRandom(typeList),random.nextInt(100000),getRandom(typeDeckLevel),random.nextInt(50));
+        }
+        decks[3] = new Deck(getRandom(typeDeckLevel),random.nextInt(50));
+        decks[4] = new Deck();
+        System.out.println("Палубы");
+        for (Deck deck : decks) {
+            System.out.println(deck.toString());
+        }
+        System.out.println("numberOfObjects ="+Deck.numberOfObjects);
+
 
     }
 
