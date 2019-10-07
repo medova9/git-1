@@ -1,4 +1,4 @@
-package classwork;
+package homework2;
 
 import homework1.Homework;
 

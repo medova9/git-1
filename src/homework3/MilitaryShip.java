@@ -2,7 +2,7 @@ package homework3;
 
 import java.util.Objects;
 
-public class Deck extends Ship {
+public class MilitaryShip extends Ship {
     public String level;
     public int numberOfSailors ;
     public static int numberOfObjects = 0;
@@ -10,17 +10,17 @@ public class Deck extends Ship {
         numberOfObjects++;
     }
 
-    public Deck(){
+    public MilitaryShip(){
     }
 
-    public Deck(int decks, String name, int weight, String type, int boardHeight, String level, int numberOfSailors) {
+    public MilitaryShip(int decks, String name, int weight, String type, int boardHeight, String level, int numberOfSailors) {
 
         super(decks, name, weight, type, boardHeight);
         this.level = level;
         this.numberOfSailors = numberOfSailors;
     }
 
-    public Deck(String level, int numberOfSailors) {
+    public MilitaryShip(String level, int numberOfSailors) {
         this.level = level;
         this.numberOfSailors = numberOfSailors;
     }
@@ -39,7 +39,7 @@ public class Deck extends Ship {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Deck deck = (Deck) o;
+        MilitaryShip deck = (MilitaryShip) o;
         return numberOfSailors == deck.numberOfSailors &&
                 Objects.equals(level, deck.level);
     }
