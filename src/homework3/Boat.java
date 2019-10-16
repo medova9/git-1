@@ -3,31 +3,32 @@ package homework3;
 import java.util.Objects;
 
 public class Boat extends Ship {
-    public String level;
-    public int numberOfSailors ;
-    public static int numberOfObjects ;
+    private String level;
+    private int numberOfSailors;
+    static int numberOfObjects;
+
     {
         numberOfObjects++;
     }
 
-    public Boat(){
+    Boat() {
     }
 
-    public Boat(double maxSpeed, int decks, String name, int weight, ShipTypes type, int termOfUse, String level, int numberOfSailors) {
+    Boat(double maxSpeed, int decks, String name, int weight, ShipTypes type, int termOfUse, String level, int numberOfSailors) {
 
-        super(maxSpeed,decks, name, weight, type, termOfUse);
+        super(maxSpeed, decks, name, weight, type, termOfUse);
         this.level = level;
         this.numberOfSailors = numberOfSailors;
     }
 
-    public Boat(String level, int numberOfSailors) {
+    Boat(String level, int numberOfSailors) {
         this.level = level;
         this.numberOfSailors = numberOfSailors;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " "+"MilitaryShip{" +
+        return super.toString() + " " + "MilitaryShip{" +
                 "level='" + level + '\'' +
                 ", numberOfSailors=" + numberOfSailors +
                 '}';

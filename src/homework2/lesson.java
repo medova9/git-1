@@ -46,12 +46,12 @@ public class lesson {
         System.out.println("\nTask 19. Write a Java program to add two matrices of the same size.");
         int a = 3;
         int b = 2;
-        int[][] matr1 = {{1,2},{4,5},{7,8}};
-        int[][] matr2 = {{1,1},{1,1},{1,1}};
+        int[][] matr1 = {{1, 2}, {4, 5}, {7, 8}};
+        int[][] matr2 = {{1, 1}, {1, 1}, {1, 1}};
         int[][] matrSum = new int[a][b];
 
-        for (int i = 0; i < a; i++){
-            for (int j = 0; j < b; j++){
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < b; j++) {
                 matrSum[i][j] = matr1[i][j] + matr2[i][j];
             }
         }
@@ -209,7 +209,8 @@ public class lesson {
         System.out.println("Повторяющиеся элементы:\n" + result);
 
     }
-//2 раза вывелись
+
+    //2 раза вывелись
     private static void runtask12() {
         //Task 12. Write a Java program to find the duplicate values of an array of integer values.
         System.out.println("\nTask 12. Write a Java program to find the duplicate values of an array of integer values.");

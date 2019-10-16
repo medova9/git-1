@@ -6,20 +6,19 @@ public abstract class Transport {
 
     private double maxSpeed;
 
-    public Transport() {
+    Transport() {
     }
 
-    public Transport(double maxSpeed) {
+    Transport(double maxSpeed) {
         this.setMaxSpeed(maxSpeed);
     }
 
 
-
-    public double getMaxSpeed() {
+    double getMaxSpeed() {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(double maxSpeed) {
+    private void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 

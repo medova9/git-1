@@ -1,7 +1,5 @@
 package homeworkString;
 
-import java.util.regex.Pattern;
-
 public class MainClass {
     public static void main(String[] args) {
         String text =
@@ -42,10 +40,12 @@ public class MainClass {
 
         runTask7(text);
 
-        textOut = runTask8(text, 1);
+        runTask8(text, 1);
+        runTask8(text, 2);
 
 
     }
+
     private static String runTask1(String text) {
         System.out.println("------------------------------------");
         System.out.println("1. Преобразовать текст так, чтобы каждое слово начиналось с заглавной буквы.");
@@ -159,17 +159,14 @@ public class MainClass {
         System.out.println("6.  Найти и напечатать, сколько раз повторяется в тексте каждое слово, которое встречае" +
                 "тся в нем.");
         int counter;
-        String[] words = text.split("\\s+");
+        String[] words = text.replaceAll("[!-?«-»—]+", "").split("\\s+");
         String[] wordsOut = new String[words.length];
-        for (String s : words) {
-            s = s.replaceAll("[!-?«-»—]+", "").toUpperCase();
-        }
+
         int r = 0;
         for (int i = 0; i < words.length; i++) {
-            //if (!words[i].equals("")) {
             counter = 0;
-            for (int j = 0; j < wordsOut.length; j++) {
-                if (words[i].replaceAll("[!-?«-»—]+", "").toUpperCase().equals(wordsOut[j])) {
+            for (String s : wordsOut) {
+                if (words[i].replaceAll("[!-?«-»—]+", "").equalsIgnoreCase(s)) {
                     counter++;
                 }
             }
@@ -177,15 +174,14 @@ public class MainClass {
                 counter = 1;
 
                 for (int j = 0; j < words.length; j++) {
-                    if (j != i && words[i].replaceAll("[!-?«-»—]+", "").toUpperCase().equals(words[j].replaceAll("[!-?«-»—]+", "").toUpperCase())) {
+                    if (j != i && words[i].replaceAll("[!-?«-»—]+", "").toUpperCase().equalsIgnoreCase(words[j].replaceAll("[!-?«-»—]+", ""))) {
                         counter++;
                     }
                 }
                 wordsOut[r] = words[i].replaceAll("[!-?«-»—]+", "").toUpperCase();
-                System.out.println(wordsOut[r] + " встречается " + counter + " раз");
+                System.out.println(counter + " \t " + wordsOut[r]);
                 r++;
             }
-            //}
         }
 
     }
@@ -193,34 +189,33 @@ public class MainClass {
     private static void runTask7(String text) {
         System.out.println("------------------------------------");
         System.out.println("7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста");
-        String returnText = "";
         text = runTask5(text, '(', ')');
         int vowelsCount;
         int consonantsCount;
-        text = text.replaceAll("1.|2.|3.+","").replace('\n',' ');
+        text = text.replaceAll("1.|2.|3.+", "").replace('\n', ' ');
 
         String[] sentences = text.split("[.!?]+");
         for (String sentence : sentences) {
             System.out.println(sentence);
-            sentence = sentence.replaceAll("\\s+","").replaceAll("[!-?«-»—]+","").toLowerCase();
+            sentence = sentence.replaceAll("\\s+", "").replaceAll("[!-?«-»—]+", "").toLowerCase();
             //System.out.println(sentence);
-            vowelsCount =0;
+            vowelsCount = 0;
             consonantsCount = 0;
             for (int i = 0; i < sentence.length(); i++) {
-                if((sentence.charAt(i)+"").matches("[уеыаоэяию]")){
+                if ((sentence.charAt(i) + "").matches("[уеыаоэяию]")) {
                     vowelsCount++;
                 } else {
                     consonantsCount++;
                 }
             }
-            System.out.println(vowelsCount+" гласных, "+consonantsCount+" согласных");
-            if (vowelsCount>consonantsCount){
+            System.out.println(vowelsCount + " гласных, " + consonantsCount + " согласных");
+            if (vowelsCount > consonantsCount) {
                 System.out.println("гласных больше");
             }
-            if (vowelsCount<consonantsCount){
+            if (vowelsCount < consonantsCount) {
                 System.out.println("согласных больше");
             }
-            if (vowelsCount==consonantsCount){
+            if (vowelsCount == consonantsCount) {
                 System.out.println("согласных и гласных одинаково");
             }
         }
@@ -232,13 +227,13 @@ public class MainClass {
         System.out.println("8. Во всех вопросительных предложениях текста найти и напечатать без повторений слова з" +
                 "аданной длины");
 
-        String sentences="";
+        String sentences = "";
 // Находим вопросительные предложения
         for (int j = 0; j < text.length() && j != -1; j++) {
-            for (int i = text.indexOf('?',j)-1; i >= 0 ; i--) {
-                if(text.charAt(i)=='.'||text.charAt(i)=='?'){
-                    j = text.indexOf('?',j)+1;
-                    sentences+=text.substring(i+1,j);
+            for (int i = text.indexOf('?', j) - 1; i >= 0; i--) {
+                if (text.charAt(i) == '.' || text.charAt(i) == '?') {
+                    j = text.indexOf('?', j) + 1;
+                    sentences += text.substring(i + 1, j);
                     break;
                 }
             }
@@ -249,32 +244,30 @@ public class MainClass {
 
         int counter;
 
-        String[] words = sentences.split("\\s+");
+        String[] words = sentences.replaceAll("[!-?«-»—]+", "").split("\\s+");
         String[] wordsOut = new String[words.length];
-        for (String s : words) {
-            s = s.replaceAll("[!-?«-»—]+", "").toUpperCase();
-        }
+
         int r = 0;
         for (int i = 0; i < words.length; i++) {
-            if (words[i].length()==length) {
-            counter = 0;
-            for (int j = 0; j < wordsOut.length; j++) {
-                if (words[i].replaceAll("[!-?«-»—]+", "").toUpperCase().equals(wordsOut[j])) {
-                    counter++;
-                }
-            }
-            if (counter == 0) {
-                counter = 1;
-
-                for (int j = 0; j < words.length; j++) {
-                    if (j != i && words[i].replaceAll("[!-?«-»—]+", "").toUpperCase().equals(words[j].replaceAll("[!-?«-»—]+", "").toUpperCase())) {
+            if (words[i].length() == length) {
+                counter = 0;
+                for (String s : wordsOut) {
+                    if (words[i].replaceAll("[!-?«-»—]+", "").equalsIgnoreCase(s)) {
                         counter++;
                     }
                 }
-                wordsOut[r] = words[i].replaceAll("[!-?«-»—]+", "").toUpperCase();
-                System.out.println(wordsOut[r] + " встречается " + counter + " раз");
-                r++;
-            }
+                if (counter == 0) {
+                    counter = 1;
+
+                    for (int j = 0; j < words.length; j++) {
+                        if (j != i && words[i].replaceAll("[!-?«-»—]+", "").equalsIgnoreCase(words[j].replaceAll("[!-?«-»—]+", ""))) {
+                            counter++;
+                        }
+                    }
+                    wordsOut[r] = words[i].replaceAll("[!-?«-»—]+", "").toUpperCase();
+                    System.out.println(counter + " \t " + wordsOut[r]);
+                    r++;
+                }
             }
         }
 

@@ -10,7 +10,6 @@ public class Ship extends Transport implements MoveInterface, UtilizationInterfa
     private int termOfUse;
 
 
-
     Ship(double speed, int decks, String name, int weight, ShipTypes type, int boardHeight) {
         super(speed);
         this.decks = decks;
@@ -30,7 +29,10 @@ public class Ship extends Transport implements MoveInterface, UtilizationInterfa
     public void setDecks(int decks) {
         this.decks = decks;
     }
-    public String getName() { return name; }
+
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;

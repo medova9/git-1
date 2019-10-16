@@ -1,7 +1,7 @@
 package homework3;
 
 public interface MoveInterface {
-    abstract String move ();
+    String move ();
 
-    abstract double getSpeed ();
+    double getSpeed ();
 }
