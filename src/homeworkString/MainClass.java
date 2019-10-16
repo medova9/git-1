@@ -222,7 +222,7 @@ public class MainClass {
 
     }
 
-    private static String runTask8(String text, int length) {
+    private static void runTask8(String text, int length) {
         System.out.println("------------------------------------");
         System.out.println("8. Во всех вопросительных предложениях текста найти и напечатать без повторений слова з" +
                 "аданной длины");
@@ -271,7 +271,6 @@ public class MainClass {
             }
         }
 
-        return "";
     }
 
 
