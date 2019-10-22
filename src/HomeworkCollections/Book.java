@@ -2,7 +2,7 @@ package HomeworkCollections;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private String title;
     private String authorName;
     private String authorSurname;
@@ -102,5 +102,21 @@ public class Book {
                 ", theDateOfPublishing=" + theDateOfPublishing +
                 ", pages=" + pages +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        if (this.getAuthorSurname().compareTo(o.getAuthorSurname()) > 0) return 1;
+        if (this.getAuthorSurname().compareTo(o.getAuthorSurname()) < 0) return -1;
+        if (this.getAuthorSurname().compareTo(o.getAuthorSurname()) == 0) {
+            if (this.getAuthorName().compareTo(o.getAuthorName()) > 0) return 1;
+            if (this.getAuthorName().compareTo(o.getAuthorName()) < 0) return -1;
+            if (this.getAuthorName().compareTo(o.getAuthorName()) == 0) {
+                if (this.getAuthorSecondName().compareTo(o.getAuthorSecondName()) > 0) return 1;
+                if (this.getAuthorSecondName().compareTo(o.getAuthorSecondName()) < 0) return -1;
+                if (this.getAuthorSecondName().compareTo(o.getAuthorSecondName()) == 0) return 0;
+            }
+        }
+        return 0;
     }
 }

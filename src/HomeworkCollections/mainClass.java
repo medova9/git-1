@@ -1,15 +1,14 @@
 package HomeworkCollections;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
 
 public class mainClass {
     public static void main(String[] args) {
         System.out.println("1. Создать экземпляр класса LinkedList, разместить в нём 3 ссылки на объекты класса Book. \n" +
                 "List< Book > list = new LinkedList< Book >();\n" +
                 "Вывести информацию о всех книгах. Программно удалить из коллекции вторую книгу, вывести на экран информацию о оставшихся книгах.");
+        //new TreeSet<String>(Comparator.comparing(Integer::valueOf));
         List< Book > list = new LinkedList<>();
         list.add(new Book("Sun","Olga",1990,15));
         list.add(new Book("Moon","Tatiana",1915,145));
@@ -59,5 +58,18 @@ public class mainClass {
                 System.out.println(book.toString());
             }
         }
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("3. Отсортировать коллекцию из задания 2 по фамилии, затем по имени, по отчеству" +
+                " (эти поля надо добавить в класс Book для автора книги).");
+
+        ArrayList<Book> arrayList = new ArrayList<>(set);
+        Collections.sort(arrayList);
+
+        for (Book book : arrayList) {
+            System.out.println(book.toString());
+        }
+
     }
+
+
 }
