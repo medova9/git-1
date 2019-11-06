@@ -10,8 +10,8 @@ public class CopyFile {
 
 
     public static void main(String[] args) throws IOException {
-        File file = new File("task1.txt");
-        try (FileOutputStream out = new FileOutputStream(file)) {
+        File file1 = new File("task1.txt");
+        try (FileOutputStream out = new FileOutputStream(file1)) {
             Integer c;
 
             Random random = new Random();
@@ -24,7 +24,7 @@ public class CopyFile {
 
 
         List<Integer> arrayList = new ArrayList<>();
-        try (FileInputStream is = new FileInputStream(file)) {
+        try (FileInputStream is = new FileInputStream(file1)) {
             int b;
             while ((b = is.read()) != -1) {
                 arrayList.add(b);
@@ -32,7 +32,7 @@ public class CopyFile {
         }
         arrayList.sort(Integer::compareTo);
 
-        try (FileOutputStream out = new FileOutputStream(file)) {
+        try (FileOutputStream out = new FileOutputStream(file1)) {
             Integer c;
 
 
@@ -40,6 +40,15 @@ public class CopyFile {
                 out.write(arrayList.get(i));
             }
         }
+
+        File file2 = new File("task2.txt");
+        try (PrintWriter out = new PrintWriter(file2)) {
+            out.println("На полянке у тропинки");
+            out.println("Пробиваются травинки");
+            out.println("С бугорка ручей бежит");
+            out.println("А под ёлкой снег лежит");
+        }
+
 
 
     }
