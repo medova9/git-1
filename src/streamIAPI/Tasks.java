@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.OptionalDouble;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Tasks {
+    public static List<Person> filterAge(List<Person> list, Predicate<Person> predicate) {
+       return list
+                .stream()
+                .filter(predicate)
+                .collect(Collectors.toList());
+    }
+
     public static void main(String[] args) {
         List<Person> list = new ArrayList<>();
         list.add(new Person("Коля",40));
@@ -18,28 +26,26 @@ public class Tasks {
         list.add(new Person("Оксана",38));
         list.add(new Person("Коля",63));
 
-        List<Person> list20 = list
-                .stream()
-                .filter(n -> n.getAge() > 20)
-                .collect(Collectors.toList());
+        Predicate<Person> predicate = n-> n.getAge() > 20;
+
+        List<Person> list20 = filterAge(list, predicate);
 
         System.out.println(list20);
         Double average = list
                 .stream()
                 .filter(n -> (n.getName().toUpperCase().toCharArray()[0] + "").toLowerCase().matches("[уеыаоэяию]"))
-                .mapToInt((s) -> s.getAge())
+                .mapToInt(Person::getAge)
                 .average().orElse(0);
         System.out.println(average);
 
         //3) отфильтровать и вывести уникальные объекты в взрасте превышающий средний возраст всех людей
         Double old = list
                 .stream()
-                .mapToInt((s) -> s.getAge())
+                .mapToInt(Person::getAge)
                 .average().orElse(0);
         System.out.println(old);
-        List<Person> collect = list
+        List<Person> collect = filterAge(list, n -> n.getAge() > old)
                 .stream()
-                .filter(n -> n.getAge() > old)
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(collect);
